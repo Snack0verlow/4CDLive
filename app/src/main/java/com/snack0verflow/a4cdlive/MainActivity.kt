@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
 import com.snack0verflow.a4cdlive.ui.theme.CDLiveTheme
 import com.snack0verflow.a4cdlive.ui.theme.HomeGreen
 import com.snack0verflow.a4cdlive.ui.theme.DarkHomeGreen
@@ -20,9 +21,11 @@ import com.snack0verflow.a4cdlive.ui.theme.DarkHomeGreen
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //removes status bar padding, transparency set in themes.xml (v23)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             CDLiveTheme {
-                // A surface container using the 'background' color from the theme
+                //composables for screens go here
                 HomeScreen()
             }
         }
@@ -31,4 +34,4 @@ class MainActivity : ComponentActivity() {
 
 
 
-//test test 1234
+//TODO: add Navigation file to handle nav between screens, add sealed class: Screen, call navigation from setcontent
