@@ -29,6 +29,8 @@ fun HomeScreen () {
     ) {
         //Splash for top corner
         TopSplash()
+        //Splash for bottom corner
+        //BtmSplash()
 
         //this column will hold the other composables
         Column {
@@ -76,4 +78,23 @@ fun TopSplash (
         )
     }
 }
+
+         //composes the Bottom Left Splash
+//         @Composable
+//         fun BtmSplash (
+//
+//         ){
+//             Box(
+//                 modifier = Modifier.fillMaxWidth(),
+//                 contentAlignment = Alignment.BottomStart
+//             ) {
+//                 Image(
+//                     painter = painterResource(id = R.drawable.btmleftsplash),
+//                     contentDescription = "Bottom Left Splash",
+//                     contentScale = ContentScale.FillBounds, //needed to fill box parameters
+//                     modifier = Modifier
+//                         .size(300.dp)
+//                 )
+//             }
+//         }
 //TODO: add composables for the main box, two small boxes, bottom nav bar, bottom left splash
