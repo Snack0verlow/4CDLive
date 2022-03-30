@@ -16,11 +16,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.snack0verflow.a4cdlive.ui.theme.HomeGreen
 import com.snack0verflow.a4cdlive.ui.theme.HomeWhite
 
 @Composable
-fun HomeScreen () {
+fun HomeScreen (navController: NavController) { //navController will be used
     //home screen background color
     Box(
         modifier = Modifier
@@ -77,3 +78,5 @@ fun TopSplash (
     }
 }
 //TODO: add composables for the main box, two small boxes, bottom nav bar, bottom left splash
+//TODO: each button on any HomeScreen composable should have an onClick function that passes
+//      a route to navController.  These composable functions needs a navController: navController arg

@@ -25,8 +25,9 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             CDLiveTheme {
-                //composables for screens go here
-                HomeScreen()
+                //composables for screens go in navigation.kt
+                //Navigation starts on HomeScreen
+                Navigation()
             }
         }
     }
@@ -34,4 +35,4 @@ class MainActivity : ComponentActivity() {
 
 
 
-//TODO: add Navigation file to handle nav between screens, add sealed class: Screen, call navigation from setcontent
+//TODO: add Navigation.kt file to handle nav between screens, add sealed class: Screen, call navigation from setcontent
