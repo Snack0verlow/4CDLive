@@ -10,6 +10,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { //This adds TomTom Map
+
+            url 'https://maven.tomtom.com:8443/nexus/content/repositories/releases/'
+
+        }
     }
 }
 rootProject.name = "4CD Live"
