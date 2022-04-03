@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
@@ -38,7 +39,11 @@ fun HomeScreen (navController: NavController) {
         //this column will hold the other composables
         Column {
             LogoSection()
-            MainBox(navController = navController)
+            MainBox()
+            Box { //box needed to overlap elements
+                BottomLeftSplash()
+                BoxRow()
+            }
         }
 
     }
@@ -86,7 +91,7 @@ fun TopSplash (
 
 @Composable
 fun MainBox (
-    navController: NavController
+
 ){
     //map to DVC - ?z=17 is zoom level (close enough to see building titles)
     //an Intent signifies that a URI should be opened in another app
@@ -98,7 +103,7 @@ fun MainBox (
     Row(
         verticalAlignment = Alignment.Bottom,
         modifier = Modifier
-            .padding(30.dp)
+            .padding(start = 30.dp, end = 30.dp, bottom = 10.dp)
             .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
             .clip(RoundedCornerShape(30.dp))
             .background(HomeWhite)
@@ -130,6 +135,68 @@ fun MainBox (
                 .size(225.dp)
                 .padding(top = 30.dp, start = 10.dp, bottom = 10.dp),
             alignment = Alignment.BottomStart
+        )
+    }
+}
+@Composable
+fun BoxRow (
+
+){
+    Row(
+        modifier = Modifier
+            .padding(start = 30.dp, top = 10.dp, bottom = 10.dp, end = 30.dp)
+            .fillMaxWidth()
+    ) {
+        Box(
+            modifier = Modifier
+                .padding(end = 30.dp)
+                .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
+                .size(160.dp)
+                .background(HomeWhite)
+                .fillMaxWidth()
+                .clickable(onClick = {
+                    //TODO: what does this click to?
+                    }
+                )
+        ) {
+
+        }
+        Box(
+            modifier = Modifier
+                .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
+                .size(160.dp)
+                .background(HomeWhite)
+                .fillMaxWidth()
+                .clickable(onClick = {
+                    //TODO: what does this click to?
+                    }
+                )
+        ) {
+
+        }
+    }
+}
+@Composable
+fun BottomAppBar (
+
+) {
+
+}
+@Composable
+fun BottomLeftSplash (
+
+){
+    Box(
+        modifier = Modifier
+            .fillMaxWidth(),
+        contentAlignment = Alignment.BottomStart
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.btmleftsplash),
+            contentDescription = "Bottom Left Splash",
+            contentScale = ContentScale.FillBounds, //needed to fill box parameters
+            modifier = Modifier
+                .size(300.dp)
         )
     }
 }
