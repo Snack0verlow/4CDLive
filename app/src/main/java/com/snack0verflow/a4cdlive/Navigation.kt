@@ -14,6 +14,6 @@ fun Navigation (
         composable(route = Screen.HomeScreen.route) {
             HomeScreen(navController = navController)
         }
-        //TODO: add more composables for other screens (map, resources, etc)
+        //TODO: add more composables for other screens (resources, etc)
     }
 }
