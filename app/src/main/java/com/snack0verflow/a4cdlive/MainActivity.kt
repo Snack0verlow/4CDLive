@@ -32,8 +32,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-
-
-//TODO: add Navigation.kt file to handle nav between screens, add sealed class: Screen, call navigation from setcontent
-// AIUSHDBAISJDGHVAIUSDFGAVSDTFASVDYTFAS DUSATFD UTAF@Q12

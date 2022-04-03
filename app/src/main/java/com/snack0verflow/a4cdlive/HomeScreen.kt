@@ -1,9 +1,11 @@
 package com.snack0verflow.a4cdlive
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -11,19 +13,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.focus.focusModifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavController
-import com.snack0verflow.a4cdlive.ui.theme.HomeGreen
 import com.snack0verflow.a4cdlive.ui.theme.HomeWhite
+
 
 @Composable
 fun HomeScreen (navController: NavController) {
@@ -83,13 +82,20 @@ fun TopSplash (
         )
     }
 }
-//TODO: add composables for the main box, two small boxes, bottom nav bar, bottom left splash
+//TODO: add composables for two small boxes, bottom nav bar, bottom left splash
 
 @Composable
 fun MainBox (
     navController: NavController
 ){
-    Row( //FIXME: Needs map screen (crashes when clicked w/o)
+    //map to DVC - ?z=17 is zoom level (close enough to see building titles)
+    //an Intent signifies that a URI should be opened in another app
+    val gmmIntentUri = Uri.parse("geo:37.96871966995606, -122.07120734663494?z=17")
+    val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+    val context = LocalContext.current
+    mapIntent.setPackage("com.google.android.apps.maps")
+
+    Row(
         verticalAlignment = Alignment.Bottom,
         modifier = Modifier
             .padding(30.dp)
@@ -97,11 +103,12 @@ fun MainBox (
             .clip(RoundedCornerShape(30.dp))
             .background(HomeWhite)
             .fillMaxWidth()
-            .clickable (
+            .clickable(
                 onClick = {
-                    navController.navigate(Screen.MapScreen.route)
+                    //starts Google Maps
+                    startActivity(context, mapIntent, null)
                 }
-                    )
+            )
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -116,7 +123,6 @@ fun MainBox (
                 text = "view the campus map"
             )
         }
-
         Image(
             painter = painterResource(id = R.drawable.avatarhome2),
             contentDescription = "HomeScreen Avatar",
@@ -125,8 +131,6 @@ fun MainBox (
                 .padding(top = 30.dp, start = 10.dp, bottom = 10.dp),
             alignment = Alignment.BottomStart
         )
-
-
     }
 }
 
