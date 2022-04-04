@@ -19,6 +19,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavController
@@ -142,24 +143,42 @@ fun MainBox (
 fun BoxRow (
 
 ){
+    var uri = ""
+    val uriHandler = LocalUriHandler.current
     Row(
         modifier = Modifier
             .padding(start = 30.dp, top = 10.dp, bottom = 10.dp, end = 30.dp)
             .fillMaxWidth()
     ) {
         Box(
+
             modifier = Modifier
                 .padding(end = 30.dp)
                 .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
                 .size(160.dp)
                 .background(HomeWhite)
                 .fillMaxWidth()
-                .clickable(onClick = {
-                    //TODO: what does this click to?
+                .clickable(
+                    onClick = {
+                        uri = "https://dvc.libcal.com/reserve/sr"
+                        uriHandler.openUri(uri)
                     }
                 )
         ) {
+            Image(painter = painterResource(
+                id = R.drawable.bookswhtback),
+                contentDescription = "Books for Study Room Tile",
+                contentScale = ContentScale.FillBounds,
+                modifier = Modifier.fillMaxSize()
+            )
+            Text(
+                text = "Reserve a Study Room",
+                style = MaterialTheme.typography.h2,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .padding(10.dp)
 
+            )
         }
         Box(
             modifier = Modifier
@@ -167,21 +186,32 @@ fun BoxRow (
                 .size(160.dp)
                 .background(HomeWhite)
                 .fillMaxWidth()
-                .clickable(onClick = {
-                    //TODO: what does this click to?
+                .clickable(
+                    onClick = {
+                        //TODO: change to actual RMP page in our app? right now just opens RMP
+                        uri = "https://www.ratemyprofessors.com/campusRatings.jsp?sid=1245"
+                        uriHandler.openUri(uri)
                     }
                 )
         ) {
+            Image(
+                painter = painterResource(id = R.drawable.bookswhtback),
+                contentDescription = "Twig for RMP",
+                contentScale = ContentScale.FillBounds,
+                modifier = Modifier.fillMaxSize()
+            )
+            Text(
+                text = "Rate My Professor",
+                style = MaterialTheme.typography.h2,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .padding(10.dp)
 
+            )
         }
     }
 }
-@Composable
-fun BottomAppBar (
 
-) {
-
-}
 @Composable
 fun BottomLeftSplash (
 
