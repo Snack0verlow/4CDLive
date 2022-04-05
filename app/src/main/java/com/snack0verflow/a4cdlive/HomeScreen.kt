@@ -226,7 +226,7 @@ fun BottomLeftSplash (
             contentDescription = "Bottom Left Splash",
             contentScale = ContentScale.FillBounds, //needed to fill box parameters
             modifier = Modifier
-                .size(300.dp)
+                .size(335.dp)
         )
     }
 }
