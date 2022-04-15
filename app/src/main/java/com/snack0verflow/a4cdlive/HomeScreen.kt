@@ -12,6 +12,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.painter.Painter
@@ -166,17 +167,18 @@ fun BoxRow (
                 )
         ) {
             Image(painter = painterResource(
-                id = R.drawable.bookswhtback),
+                id = R.drawable.schoolbag),
                 contentDescription = "Books for Study Room Tile",
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier.fillMaxSize()
             )
             Text(
-                text = "Reserve a Study Room",
+                text = "Study Rooms",
                 style = MaterialTheme.typography.h2,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .padding(10.dp)
+                    .padding(start = 20.dp, top = 10.dp, bottom = 10.dp)
+                    .alpha(.7f)
 
             )
         }
@@ -195,8 +197,8 @@ fun BoxRow (
                 )
         ) {
             Image(
-                painter = painterResource(id = R.drawable.bookswhtback),
-                contentDescription = "Twig for RMP",
+                painter = painterResource(id = R.drawable.officebag ),
+                contentDescription = "",
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier.fillMaxSize()
             )
@@ -206,6 +208,7 @@ fun BoxRow (
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .padding(10.dp)
+                    .alpha(.7f)
 
             )
         }
