@@ -28,7 +28,7 @@ import com.snack0verflow.a4cdlive.ui.theme.HomeWhite
 
 
 @Composable
-fun HomeScreen (navController: NavController) {
+fun HomeScreen () {
     //home screen background color
     Box(
         modifier = Modifier
@@ -36,14 +36,17 @@ fun HomeScreen (navController: NavController) {
             .background(HomeWhite)
     ) {
         //Splash for top corner
-        TopSplash()
+        Column(verticalArrangement = Arrangement.spacedBy(100.dp)
+        ) {
+            TopSplash()
+            BottomLeftSplash()
+        }
 
         //this column will hold the other composables
         Column {
             LogoSection()
             MainBox()
             Box { //box needed to overlap elements
-                BottomLeftSplash()
                 BoxRow()
             }
         }
