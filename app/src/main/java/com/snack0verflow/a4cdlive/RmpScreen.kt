@@ -1,6 +1,7 @@
 package com.snack0verflow.a4cdlive
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -13,12 +14,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.snack0verflow.a4cdlive.ui.theme.HomeWhite
 
 @Composable
 fun RmpScreen (profList: MutableList<Professors>) {
+
+    var uri = ""
+    val uriHandler = LocalUriHandler.current
+
     //home screen background color
     Box(
         modifier = Modifier
@@ -54,6 +60,14 @@ fun RmpScreen (profList: MutableList<Professors>) {
                             .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
                             .background(HomeWhite)
                             .fillMaxWidth()
+                            .clickable (
+                                onClick = {
+                                    uri += professor.link
+                                    uriHandler.openUri(uri)
+                                }
+                            )
+
+
                     ) {
                         Column() {
                             Text(
