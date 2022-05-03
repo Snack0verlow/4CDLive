@@ -62,6 +62,7 @@ class MainActivity : ComponentActivity() {
                 professorList.add(professor)
             }
             professorList.removeAt(0) //remove header
+            professorList.sortBy { it.name } //sort by first name alphabetically
             return professorList
         }
         setContent {
