@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+//import androidx.compose.foundation.layout.R
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -30,18 +31,40 @@ import androidx.navigation.compose.rememberNavController
 import com.snack0verflow.a4cdlive.ui.theme.CDLiveTheme
 import com.snack0verflow.a4cdlive.ui.theme.HomeGreen
 import com.snack0verflow.a4cdlive.ui.theme.DarkHomeGreen
+import java.io.BufferedReader
+import java.io.InputStream
+import java.io.InputStreamReader
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //removes status bar padding, transparency set in themes.xml (v23)
         //WindowCompat.setDecorFitsSystemWindows(window, false) //FIXME: had set to fill window but navbar doesn't show when set
+
+        fun readerCSV (): MutableList<Professors> {
+            val input: InputStream = resources.openRawResource(R.raw.rmp1)
+            val bufferedReader = BufferedReader(InputStreamReader(input))
+            var line: String
+            var professorList = mutableListOf<Professors>()
+
+            while (bufferedReader.readLine() != null) {
+                line = bufferedReader.readLine()
+                var profList: List<String> = line.split(',')
+                val name = profList[0]
+                val rating = profList[1]
+                val subject = profList[2]
+                val difficulty = profList[3]
+                val professor = Professors(name, rating, subject, difficulty)
+                professorList.add(professor)
+            }
+            return professorList
+        }
         setContent {
             CDLiveTheme {
                 //composables for screens go in navigation.kt
                 //Navigation starts on HomeScreen
                 //MainView Displays all screens
-                MainView()
+                MainView(readerCSV())
             }
         }
     }
