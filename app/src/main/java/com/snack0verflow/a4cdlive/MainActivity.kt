@@ -42,21 +42,26 @@ class MainActivity : ComponentActivity() {
         //WindowCompat.setDecorFitsSystemWindows(window, false) //FIXME: had set to fill window but navbar doesn't show when set
 
         fun readerCSV (): MutableList<Professors> {
-            val input: InputStream = resources.openRawResource(R.raw.rmp1)
+            val input: InputStream = resources.openRawResource(R.raw.rmp2)
             val bufferedReader = BufferedReader(InputStreamReader(input))
             var line: String
             var professorList = mutableListOf<Professors>()
 
-            while (bufferedReader.readLine() != null) {
+            //put number of professors + 1 from RMPscraper -> for (i in 1..#) - (indicates end of file)
+            //replaced while(bufferedReader.readLine() != null) because was causing crash with rmp2
+            //but not with rmp1 -- unsure why, perhaps worth exploring later
+            for (i in 1..1609) {
                 line = bufferedReader.readLine()
                 var profList: List<String> = line.split(',')
                 val name = profList[0]
                 val rating = profList[1]
                 val subject = profList[2]
                 val difficulty = profList[3]
-                val professor = Professors(name, rating, subject, difficulty)
+                val link = profList[4]
+                val professor = Professors(name, rating, subject, difficulty, link)
                 professorList.add(professor)
             }
+            professorList.removeAt(0) //remove header
             return professorList
         }
         setContent {
