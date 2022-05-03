@@ -18,7 +18,7 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun MainView (
-
+    profList: MutableList<Professors>
 ){
     val navController = rememberNavController()
     Scaffold(
@@ -54,6 +54,6 @@ fun MainView (
         }
 
     ) {
-        Navigation(navController = navController)
+        Navigation(navController = navController, profList)
     }
 }

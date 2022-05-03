@@ -8,7 +8,7 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun Navigation (
-navController : NavHostController
+navController : NavHostController, profList: MutableList<Professors>
 ) {
     NavHost(navController = navController, startDestination = Screen.HomeScreen.route) {
         composable(Screen.HomeScreen.route) {
@@ -16,13 +16,12 @@ navController : NavHostController
         }
 
         composable(Screen.RmpScreen.route) {
-            RmpScreen()
+            RmpScreen(profList)
         }
 
         composable(Screen.ResourceScreen.route) {
             ResourceScreen()
         }
-
 
 
         //TODO: add more composables for other screens (resources, etc)
