@@ -9,8 +9,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,6 +19,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -31,6 +31,7 @@ fun RmpScreen (profList: MutableList<Professors>) {
     var uri = ""
     val uriHandler = LocalUriHandler.current
     var isExpanded by remember { mutableStateOf(false)}
+    var text by remember { mutableStateOf(TextFieldValue(""))}
 
     //home screen background color
     Box(
@@ -50,11 +51,31 @@ fun RmpScreen (profList: MutableList<Professors>) {
                 .padding(15.dp)
                 .fillMaxWidth()
         ) {
-            Text(
-                text = "Ratings",
-                style = MaterialTheme.typography.h1,
-                modifier = Modifier.padding(bottom = 10.dp)
-            )
+            Row (
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "Ratings",
+                    style = MaterialTheme.typography.h1,
+                    modifier = Modifier.padding(bottom = 10.dp, end = 30.dp)
+                )
+                //Search bar when ready to add search feature, currently does nothing
+                OutlinedTextField(
+                    value = text,
+                    label = { Text(text = "Search")},
+                    onValueChange = {text = it},
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        focusedBorderColor = DarkHomeGreen,
+                        cursorColor = Color.Black,
+                        textColor = Color.Black,
+                        disabledPlaceholderColor = Color.Black,
+                        focusedLabelColor = Color.Black
+                    ),
+                    modifier = Modifier
+                        .padding(start = 15.dp, bottom = 20.dp)
+                )
+
+            }
             LazyColumn(
                 state = rememberLazyListState(),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
@@ -117,9 +138,9 @@ fun RmpScreen (profList: MutableList<Professors>) {
                                     .background(
                                         if (rating == 0.0) {
                                             Color.LightGray
-                                        } else if (rating <= 1.6) {
+                                        } else if (rating < 3) {
                                             RedRating
-                                        } else if (rating >= 3.2) {
+                                        } else if (rating >= 4) {
                                             GreenRating
                                         } else {
                                             YellowRating
