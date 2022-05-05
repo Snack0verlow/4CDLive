@@ -1,10 +1,9 @@
 package com.snack0verflow.a4cdlive
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -25,15 +24,13 @@ fun ResourceScreen () {
             TopSplash()
             BottomLeftSplash()
         }
-
-        //this column will hold the other composables
-        Column {
-            LogoSection()
-            MainBox()
-            Box { //box needed to overlap elements
-                BoxRow()
-            }
+        Column(){
+            Text(
+                text = "Resources",
+                style = MaterialTheme.typography.h1,
+                modifier = Modifier
+                    .padding(30.dp)
+            )
         }
-
     }
 }
