@@ -94,7 +94,7 @@ fun ResourceScreen () {
                         {
                             Image(
                                 painter=painterResource(id=R.drawable.counselling),
-                                contentDescription="counselling",
+                                contentDescription="Counselling",
                                 modifier=Modifier
                                     .size(40.dp)
                                     .padding(start=15.dp)
