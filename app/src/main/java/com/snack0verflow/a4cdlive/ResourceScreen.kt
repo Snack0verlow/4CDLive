@@ -78,6 +78,34 @@ fun ResourceScreen () {
                                     .padding(start = 15.dp)
                             )
                         }
+                        Column(
+                            modifier=Modifier
+                                .padding(start=30.dp,end=15.dp)
+                                .size(height = 150.dp, width = 175.dp)
+                                .shadow(elevation=10.dp,shape= RoundedCornerShape(30.dp))
+                                .background(HomeWhite)
+                                .clickable(
+                                    onClick={
+                                         uri ="https://www.dvc.edu/enrollment/counseling/index.html"
+                                         uriHandler.openUri(uri)
+                                    }
+                                )
+                        )
+                        {
+                            Image(
+                                painter=painterResource(id=R.drawable.counselling),
+                                contentDescription="counselling",
+                                modifier=Modifier
+                                    .size(40.dp)
+                                    .padding(start=15.dp)
+                            )
+                            Text(
+                                text="Counselling",
+                                style=MaterialTheme.typography.h2,
+                                modifier=Modifier
+                                    .padding(start=15.dp)
+                            )
+                        }
                     }
                     Column(){
                         Row(
