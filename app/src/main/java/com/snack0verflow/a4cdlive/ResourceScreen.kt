@@ -79,32 +79,39 @@ fun ResourceScreen () {
                             )
                         }
                         Column(
-                            modifier=Modifier
-                                .padding(start=30.dp,end=15.dp)
-                                .size(height = 150.dp, width = 175.dp)
-                                .shadow(elevation=10.dp,shape= RoundedCornerShape(30.dp))
+                            verticalArrangement = Arrangement.Center,
+                            modifier = Modifier
+                                .padding(start = 30.dp, top = 10.dp, end = 15.dp )
+                                .size(height = 115.dp, width = 176.dp)
+                                .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
                                 .background(HomeWhite)
                                 .clickable(
-                                    onClick={
-                                         uri ="https://www.dvc.edu/enrollment/counseling/index.html"
-                                         uriHandler.openUri(uri)
+                                    onClick = {
+                                        uri = "https://www.dvc.edu/current/student-centers/index.html"
+                                        uriHandler.openUri(uri)
                                     }
                                 )
-                        )
-                        {
+                        ){
                             Image(
-                                painter=painterResource(id=R.drawable.counselling),
-                                contentDescription="Counselling",
-                                modifier=Modifier
-                                    .size(40.dp)
-                                    .padding(start=15.dp)
+                                painter = painterResource(id = R.drawable.tutoring),
+                                contentDescription = "Tutoring",
+                                modifier = Modifier
+                                    .size(50.dp)
+                                    .padding(start = 15.dp)
                             )
                             Text(
-                                text="Counselling",
-                                style=MaterialTheme.typography.h2,
-                                modifier=Modifier
-                                    .padding(start=15.dp)
+                                text = "Tutoring",
+                                style = MaterialTheme.typography.h2,
+                                modifier = Modifier
+                                    .padding(start = 15.dp)
                             )
+                            Text(
+                                text = "Find Tutors",
+                                style = MaterialTheme.typography.caption,
+                                modifier = Modifier
+                                    .padding(start = 15.dp)
+                            )
+
                         }
                     }
                     Column(){
