@@ -47,8 +47,8 @@ fun ResourceScreen () {
                         Column(
                             verticalArrangement = Arrangement.Center,
                             modifier = Modifier
-                                .padding(start = 30.dp)
-                                .size(height = 150.dp, width = 200.dp)
+                                .padding(start = 30.dp, end = 15.dp )
+                                .size(height = 150.dp, width = 175.dp)
                                 .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
                                 .background(HomeWhite)
                                 .clickable(
@@ -56,7 +56,7 @@ fun ResourceScreen () {
                                         uri = "https://www.dvc.edu/academics/calendars/index.html"
                                         uriHandler.openUri(uri)
                                     }
-                                        )
+                                )
                         ){
                             Image(
                                 painter = painterResource(id = R.drawable.calendar),
@@ -77,6 +77,55 @@ fun ResourceScreen () {
                                 modifier = Modifier
                                     .padding(start = 15.dp)
                             )
+                        }
+                    }
+                    Column(){
+                        Row(
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier
+                                .padding(end = 30.dp )
+                                .fillMaxWidth()
+                                .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
+                                .background(HomeWhite)
+                                .clickable(
+                                    onClick = {
+                                        uri = "https://www.dvc.edu/enrollment/transfer/"
+                                        uriHandler.openUri(uri)
+                                    }
+                                )
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.transferresources),
+                                contentDescription = "Transfer Resources",
+                                modifier = Modifier
+                                    .size(50.dp)
+                                    .padding(start = 15.dp)
+                        )
+                            Column() {
+                                Text(
+                                    text = "Transfer",
+                                    style = MaterialTheme.typography.h2,
+                                    modifier = Modifier
+                                        .padding(start = 10.dp,top = 10.dp,end = 5.dp)
+
+
+                            )
+                                Text(
+                                    text = "Resources",
+                                    style = MaterialTheme.typography.h2,
+                                    modifier = Modifier
+                                        .padding(start = 10.dp,end = 5.dp)
+                                )
+                                Text(
+                                    text = "View Services",
+                                    style = MaterialTheme.typography.caption,
+                                    modifier = Modifier
+                                        .padding(start = 10.dp, bottom = 10.dp,end = 5.dp)
+                                )
+                            }
+
+
                         }
                     }
                 }
