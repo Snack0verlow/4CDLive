@@ -92,7 +92,7 @@ fun RmpScreen (profList: MutableList<Professors>) {
                             .pointerInput(Unit) {
                                 detectTapGestures(
                                     onTap = {
-                                        uri += professor.link
+                                        uri = professor.link
                                         uriHandler.openUri(uri)
                                     },
                                     onLongPress = {
