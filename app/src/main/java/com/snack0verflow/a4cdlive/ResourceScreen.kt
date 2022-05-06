@@ -82,7 +82,7 @@ fun ResourceScreen () {
                             verticalArrangement = Arrangement.Center,
                             modifier = Modifier
                                 .padding(start = 30.dp, top = 10.dp, end = 15.dp )
-                                .size(height = 115.dp, width = 175.dp)
+                                .size(height = 115.dp, width = 176.dp)
                                 .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
                                 .background(HomeWhite)
                                 .clickable(
