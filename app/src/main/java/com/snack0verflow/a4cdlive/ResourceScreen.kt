@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.platform.UriHandler
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.snack0verflow.a4cdlive.ui.theme.ClubGreen
@@ -104,7 +105,7 @@ fun Calendar () {
             painter = painterResource(id = R.drawable.calendar),
             contentDescription = "Academic Calendar",
             modifier = Modifier
-                .size(40.dp)
+                .size(50.dp)
                 .padding(start = 15.dp)
         )
         Text(
@@ -144,8 +145,8 @@ fun FinancialAid () {
             painter = painterResource(id = R.drawable.financialaid),
             contentDescription = "Financial Aid",
             modifier = Modifier
-                .size(40.dp)
-                .padding(start = 15.dp)
+                .size(45.dp)
+                .padding(start = 15.dp, top = 15.dp, bottom = 5.dp)
         )
         Text(
             text = "Financial Aid",
@@ -180,7 +181,7 @@ fun Tutoring () {
             painter = painterResource(id = R.drawable.tutoring),
             contentDescription = "Tutoring",
             modifier = Modifier
-                .size(40.dp)
+                .size(50.dp)
                 .padding(start = 15.dp)
         )
         Text(
@@ -193,7 +194,7 @@ fun Tutoring () {
             text = "Find Tutors",
             style = MaterialTheme.typography.h4,
             modifier = Modifier
-                .padding(start = 15.dp)
+                .padding(start = 15.dp, bottom = 10.dp)
         )
 
     }
@@ -286,7 +287,7 @@ fun TransferResources () {
             painter = painterResource(id = R.drawable.transferresources),
             contentDescription = "Transfer Resources",
             modifier = Modifier
-                .size(40.dp)
+                .size(50.dp)
                 .padding(start = 15.dp)
         )
         Column(
@@ -339,14 +340,30 @@ fun Counseling(){
             painter=painterResource(id=R.drawable.counselling),
             contentDescription="Counseling",
             modifier=Modifier
-                .size(40.dp)
+                .size(50.dp)
                 .padding(start=15.dp)
         )
         Text(
             text="Counseling",
-            style=MaterialTheme.typography.h2,
+            style=MaterialTheme.typography.h3,
             modifier=Modifier
-                .padding(start=15.dp)
+                .padding(start=15.dp, bottom=15.dp)
         )
-}
+        Box(
+            modifier = Modifier
+                .padding(start=15.dp,bottom=15.dp,end=15.dp)
+                .size(height = 40.dp, width = 150.dp)
+                .shadow(elevation=10.dp,shape= RoundedCornerShape(30.dp))
+                .background(ClubGreen)
+                .fillMaxWidth(.5f)
+        )
+//        Text(
+//            text="Book An Appointment",
+//            style = MaterialTheme.typography.h4,
+//            color = Color.White,
+//            textAlign = TextAlign.Center,
+//            modifier=Modifier
+//                .padding(start=28.dp, bottom=20.dp)
+//        ) TO DO : this needs to be in the box
+    }
 }

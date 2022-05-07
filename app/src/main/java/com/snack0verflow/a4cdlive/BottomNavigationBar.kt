@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.snack0verflow.a4cdlive.ui.theme.ClubGreen
 import com.snack0verflow.a4cdlive.ui.theme.DarkHomeGreen
 import com.snack0verflow.a4cdlive.ui.theme.HomeGreen
 import com.snack0verflow.a4cdlive.ui.theme.HomeWhite
@@ -38,7 +39,7 @@ fun BottomNavigationBar(
                 selected = selected,
                 onClick = { onItemClick(item) },
                 selectedContentColor = DarkHomeGreen,
-                unselectedContentColor = HomeGreen,
+                unselectedContentColor = ClubGreen,
                 icon = {
                     Column(horizontalAlignment = CenterHorizontally) {
                         Icon(

@@ -24,6 +24,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavController
+import com.snack0verflow.a4cdlive.ui.theme.ClubGreen
 import com.snack0verflow.a4cdlive.ui.theme.HomeWhite
 
 
@@ -160,7 +161,7 @@ fun BoxRow (
                 .padding(end = 30.dp)
                 .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
                 .size(160.dp)
-                .background(HomeWhite)
+                .background(ClubGreen)
                 .fillMaxWidth()
                 .clickable(
                     onClick = {
@@ -283,3 +284,5 @@ fun MainBox (
     }
 }
  */
+
+//test

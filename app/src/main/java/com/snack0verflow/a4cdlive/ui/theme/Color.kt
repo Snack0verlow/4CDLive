@@ -1,5 +1,6 @@
 package com.snack0verflow.a4cdlive.ui.theme
 
+import android.media.SubtitleData
 import androidx.compose.ui.graphics.Color
 
 val Purple200 = Color(0xFFBB86FC)
@@ -13,3 +14,4 @@ val GreenRating = Color(0xFF8CFF98)
 val YellowRating = Color(0xFFFDFF88)
 val RedRating = Color(0xFFFF7C84)
 val ClubGreen = Color(0xFF85DAA7)
+val Gray = Color(0xFF818181)
