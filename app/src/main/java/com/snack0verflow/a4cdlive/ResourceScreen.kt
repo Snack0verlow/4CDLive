@@ -376,7 +376,5 @@ fun Counseling(){
                 )
             }
         }
-
-
     }
 }
