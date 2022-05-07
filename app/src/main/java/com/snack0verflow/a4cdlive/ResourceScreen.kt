@@ -1,5 +1,6 @@
 package com.snack0verflow.a4cdlive
 
+import android.graphics.Paint
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -21,6 +22,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.snack0verflow.a4cdlive.ui.theme.ClubGreen
 import com.snack0verflow.a4cdlive.ui.theme.HomeWhite
+
+
 
 
 @Composable
@@ -66,8 +69,9 @@ fun ResourceScreen () {
                             ) {
                         Calendar()
                         FinancialAid()
-                        Tutoring()
                         Counseling()
+                        Tutoring()
+
 
                     }
                     Column (
@@ -322,13 +326,14 @@ fun Counseling(){
     var uri=""
     var uriHandler= LocalUriHandler.current
     Column(
-            modifier=Modifier
-        //.padding(start=30.dp,end=15.dp)
-        //.size(height = 150.dp, width = 175.dp)
-        .shadow(elevation=10.dp,shape= RoundedCornerShape(30.dp))
-        .background(HomeWhite)
-        .fillMaxWidth(.5f)
-        .clickable(
+        verticalArrangement = Arrangement.SpaceBetween,
+        modifier=Modifier
+            //.padding(start=30.dp,end=15.dp)
+            //.size(height = 100.dp, width = 140.dp)
+            .shadow(elevation = 5.dp,shape = RoundedCornerShape(25.dp))
+            .background(HomeWhite)
+            .fillMaxWidth(.5f)
+            .clickable(
             onClick={
                 uri ="https://www.dvc.edu/enrollment/counseling/index.html"
                 uriHandler.openUri(uri)
@@ -337,33 +342,41 @@ fun Counseling(){
     )
     {
         Image(
-            painter=painterResource(id=R.drawable.counselling),
-            contentDescription="Counseling",
-            modifier=Modifier
+            painter = painterResource(id=R.drawable.counselling),
+            contentDescription = "Counseling",
+            modifier = Modifier
                 .size(50.dp)
-                .padding(start=15.dp)
+                .padding(start = 15.dp)
         )
         Text(
-            text="Counseling",
-            style=MaterialTheme.typography.h3,
-            modifier=Modifier
-                .padding(start=15.dp, bottom=15.dp)
-        )
-        Box(
+            text = "Counseling",
+            style = MaterialTheme.typography.h3,
             modifier = Modifier
-                .padding(start=15.dp,bottom=15.dp,end=15.dp)
-                .size(height = 40.dp, width = 150.dp)
-                .shadow(elevation=10.dp,shape= RoundedCornerShape(30.dp))
-                .background(ClubGreen)
-                .fillMaxWidth(.5f)
+                .padding(start = 15.dp, bottom = 15.dp)
         )
-//        Text(
-//            text="Book An Appointment",
-//            style = MaterialTheme.typography.h4,
-//            color = Color.White,
-//            textAlign = TextAlign.Center,
-//            modifier=Modifier
-//                .padding(start=28.dp, bottom=20.dp)
-//        ) TO DO : this needs to be in the box
+        Column(
+            //TODO: horizontalAlignment = Alignment.CenterHorizontally?
+        ){
+            Box(
+                modifier = Modifier
+                    .padding(bottom = 10.dp)
+                    .size(height = 40.dp, width = 120.dp)
+                    .shadow(elevation = 10.dp,shape = RoundedCornerShape(25.dp))
+                    .background(ClubGreen)
+                    .fillMaxWidth(.5f)
+
+            ) {
+                Text(
+                    text = "Book An Appointment",
+                    style = MaterialTheme.typography.h4,
+                    color = Color.White,
+                    textAlign = TextAlign.Center,
+                    modifier=Modifier
+                        .padding()
+                )
+            }
+        }
+
+
     }
 }
