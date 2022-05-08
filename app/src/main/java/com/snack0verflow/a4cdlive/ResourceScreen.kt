@@ -55,17 +55,18 @@ fun ResourceScreen () {
 
             Box(
                 modifier = Modifier
-                    .padding(start = 30.dp, end = 30.dp)
-                    .fillMaxWidth()
+
             ) {
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(15.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
                     modifier = Modifier
+                        .padding(start = 30.dp, end = 30.dp)
                         .fillMaxWidth()
                 ) {
                     //Put composables in their respective columns
                     Column (
                         verticalArrangement = Arrangement.spacedBy(15.dp),
+                        modifier = Modifier.padding(end = 15.dp)
                             ) {
                         Calendar()
                         FinancialAid()
@@ -75,7 +76,7 @@ fun ResourceScreen () {
 
                     }
                     Column (
-                        verticalArrangement = Arrangement.spacedBy(15.dp)
+                        verticalArrangement = Arrangement.spacedBy(15.dp),
                             ) {
                         TransferResources()
                         Clubs()
@@ -359,7 +360,7 @@ fun Counseling(){
         ){
             Box(
                 modifier = Modifier
-                    .padding(bottom = 10.dp)
+                    .padding(start = 15.dp, bottom = 10.dp)
                     .size(height = 40.dp, width = 120.dp)
                     .shadow(elevation = 10.dp,shape = RoundedCornerShape(25.dp))
                     .background(ClubGreen)
@@ -372,7 +373,7 @@ fun Counseling(){
                     color = Color.White,
                     textAlign = TextAlign.Center,
                     modifier=Modifier
-                        .padding()
+                        .padding(top = 2.dp)
                 )
             }
         }
