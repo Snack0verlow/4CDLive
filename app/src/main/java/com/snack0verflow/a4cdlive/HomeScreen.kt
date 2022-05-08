@@ -65,8 +65,8 @@ fun LogoSection (
             .padding(start = 30.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.dvclogotransparent),
-            contentDescription = "DVC Logo",
+            painter = painterResource(id = R.drawable.transparent_logo),
+            contentDescription = "4cd Transparent Logo",
             modifier = Modifier
                 .size(150.dp),
             alpha = .7f //FIXME: do we want slight transparency or no?
