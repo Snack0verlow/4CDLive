@@ -195,7 +195,7 @@ fun BoxRow (
                 .clickable(
                     onClick = {
                         //TODO: change to actual RMP page in our app? right now just opens RMP
-                        uri = "https://www.ratemyprofessors.com/campusRatings.jsp?sid=1245"
+                        uri = "https://assist.org/"
                         uriHandler.openUri(uri)
                     }
                 )
@@ -207,11 +207,11 @@ fun BoxRow (
                 modifier = Modifier.fillMaxSize()
             )
             Text(
-                text = "Rate My Professor",
+                text = "Assist.org",
                 style = MaterialTheme.typography.h2,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .padding(10.dp)
+                    .padding(start = 35.dp, top = 10.dp, bottom = 10.dp)
                     .alpha(.7f)
 
             )
