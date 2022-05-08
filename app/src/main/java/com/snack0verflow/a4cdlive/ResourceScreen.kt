@@ -74,12 +74,17 @@ fun ResourceScreen () {
                         Tutoring()
 
 
+
+
+
                     }
                     Column (
                         verticalArrangement = Arrangement.spacedBy(15.dp),
                             ) {
                         TransferResources()
                         Clubs()
+                        Internships()
+                        StudentSupport()
 
                     }
                 }
@@ -204,6 +209,7 @@ fun Tutoring () {
 
     }
 }
+
 @Composable
 fun Clubs () {
     var uri = ""
@@ -322,24 +328,26 @@ fun TransferResources () {
 
     }
 }
+
+
 @Composable
 fun Counseling(){
     var uri=""
     var uriHandler= LocalUriHandler.current
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
-        modifier=Modifier
+        modifier= Modifier
             //.padding(start=30.dp,end=15.dp)
             //.size(height = 100.dp, width = 140.dp)
-            .shadow(elevation = 5.dp,shape = RoundedCornerShape(25.dp))
+            .shadow(elevation = 5.dp, shape = RoundedCornerShape(25.dp))
             .background(HomeWhite)
             .fillMaxWidth(.5f)
             .clickable(
-            onClick={
-                uri ="https://www.dvc.edu/enrollment/counseling/index.html"
-                uriHandler.openUri(uri)
-            }
-        )
+                onClick = {
+                    uri = "https://www.dvc.edu/enrollment/counseling/index.html"
+                    uriHandler.openUri(uri)
+                }
+            )
     )
     {
         Image(
@@ -362,7 +370,7 @@ fun Counseling(){
                 modifier = Modifier
                     .padding(start = 15.dp, bottom = 10.dp)
                     .size(height = 40.dp, width = 120.dp)
-                    .shadow(elevation = 10.dp,shape = RoundedCornerShape(25.dp))
+                    .shadow(elevation = 10.dp, shape = RoundedCornerShape(25.dp))
                     .background(ClubGreen)
                     .fillMaxWidth(.5f)
 
@@ -379,3 +387,96 @@ fun Counseling(){
         }
     }
 }
+@Composable
+fun Internships () {
+    var uri = ""
+    var uriHandler = LocalUriHandler.current
+
+    Column(
+        modifier = Modifier
+            //.padding(top = 10.dp, end = 30.dp)
+            //.size(height = 95.dp, width = 160.dp)
+            .shadow(elevation = 5.dp, shape = RoundedCornerShape(25.dp))
+            .background(HomeWhite)
+            .fillMaxWidth()
+            .clickable(
+                onClick = {
+                    uri = "https://joinhandshake.com"
+                    uriHandler.openUri(uri)
+                }
+            )
+    ){
+        Image(
+            painter = painterResource(id = R.drawable.internships),
+            contentDescription = "Internships",
+            modifier = Modifier
+                .size(50.dp)
+                .padding(start = 15.dp)
+        )
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.Start
+        ) {
+            Text(
+                text = "Internships",
+                style = MaterialTheme.typography.h3,
+                modifier = Modifier
+                    .padding(start = 15.dp,top = 5.dp,end = 10.dp)
+
+            )
+
+            Text(
+                text = "Explore Careers",
+                style = MaterialTheme.typography.h4,
+                modifier = Modifier
+                    .padding(start = 15.dp, bottom = 5.dp,end = 10.dp)
+            )
+        }
+
+    }
+}
+
+@Composable
+fun StudentSupport() {
+    var uri = ""
+    var uriHandler = LocalUriHandler.current
+
+    Column(
+        modifier = Modifier
+            //.padding(top = 10.dp, end = 30.dp)
+            .size(height = 95.dp, width = 160.dp)
+            .shadow(elevation = 5.dp, shape = RoundedCornerShape(25.dp))
+            .background(HomeWhite)
+            .fillMaxWidth()
+            .clickable(
+                onClick = {
+                    uri = "https://www.dvc.edu/student-services/"
+                    uriHandler.openUri(uri)
+                }
+            )
+    ){
+        Image(
+            painter = painterResource(id = R.drawable.transferresources),
+            contentDescription = "Student Support",
+            modifier = Modifier
+                .size(50.dp)
+                .padding(start = 15.dp)
+        )
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.Start
+        ) {
+            Text(
+                text = "Student Support",
+                style = MaterialTheme.typography.h3,
+                modifier = Modifier
+                    .padding(start = 15.dp,top = 5.dp,end = 10.dp)
+
+            )
+
+        }
+
+    }
+}
+
+
