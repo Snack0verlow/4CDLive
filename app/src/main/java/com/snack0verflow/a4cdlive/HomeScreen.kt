@@ -124,7 +124,7 @@ fun MainBox (
             )
     ) {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
             modifier = Modifier
                 .padding(30.dp)
         ) {
@@ -183,7 +183,7 @@ fun BoxRow (
                 style = MaterialTheme.typography.h2,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .padding(start = 20.dp, top = 10.dp, bottom = 10.dp)
+                    .padding(start = 15.dp, top = 10.dp, bottom = 10.dp)
                     .alpha(.7f)
 
             )
@@ -213,7 +213,7 @@ fun BoxRow (
                 style = MaterialTheme.typography.h2,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .padding(start = 35.dp, top = 10.dp, bottom = 10.dp)
+                    .padding(start = 30.dp, top = 10.dp, bottom = 10.dp)
                     .alpha(.7f)
 
             )
