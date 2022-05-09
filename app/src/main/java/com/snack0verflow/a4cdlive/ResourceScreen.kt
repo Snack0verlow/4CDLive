@@ -318,7 +318,7 @@ fun TransferResources () {
                 text = "Resources",
                 style = MaterialTheme.typography.h3,
                 modifier = Modifier
-                    .padding(start = 15.dp,end = 10.dp)
+                    .padding(start = 10.dp,end = 10.dp)
             )
             Text(
                 text = "View Services",
@@ -407,7 +407,7 @@ fun Internships () {
             .background(HomeWhite)
             .clickable(
                 onClick = {
-                    uri = "https://www.dvc.edu/student-services/"
+                    uri = "https://joinhandshake.com"
                     uriHandler.openUri(uri)
                 }
             )
@@ -416,7 +416,7 @@ fun Internships () {
             painter = painterResource(id = R.drawable.internships ),
             contentDescription = "Internships",
             modifier = Modifier
-                .size(50.dp)
+                .size(45.dp)
                 .padding(start = 15.dp)
         )
         Column(
@@ -427,7 +427,7 @@ fun Internships () {
                 text = "Internships",
                 style = MaterialTheme.typography.h3,
                 modifier = Modifier
-                    .padding(start = 10.dp, top = 15.dp,)
+                    .padding(start = 5.dp, top = 15.dp, end = 6.dp)
 
             )
 
