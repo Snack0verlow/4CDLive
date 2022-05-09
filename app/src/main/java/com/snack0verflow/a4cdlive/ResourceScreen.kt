@@ -300,7 +300,7 @@ fun TransferResources () {
             contentDescription = "Transfer Resources",
             modifier = Modifier
                 .size(50.dp)
-                .padding(start = 15.dp)
+                .padding(start = 10.dp)
         )
         Column(
             verticalArrangement = Arrangement.Center,
@@ -458,7 +458,7 @@ fun StudentSupport() {
             )
     ){
         Image(
-            painter = painterResource(id = R.drawable.transferresources),
+            painter = painterResource(id = R.drawable.studentsupport),
             contentDescription = "Student Support",
             modifier = Modifier
                 .size(50.dp)
