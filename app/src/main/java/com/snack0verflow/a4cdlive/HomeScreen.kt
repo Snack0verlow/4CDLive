@@ -22,9 +22,11 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavController
 import com.snack0verflow.a4cdlive.ui.theme.ClubGreen
+import com.snack0verflow.a4cdlive.ui.theme.Gray
 import com.snack0verflow.a4cdlive.ui.theme.HomeWhite
 
 
@@ -131,8 +133,8 @@ fun MainBox (
                 style = MaterialTheme.typography.h1,
             )
             Text(
-                text = "view the campus map"
-            )
+                text = "view the campus map",
+                )
         }
         Image(
             painter = painterResource(id = R.drawable.avatarhome2),

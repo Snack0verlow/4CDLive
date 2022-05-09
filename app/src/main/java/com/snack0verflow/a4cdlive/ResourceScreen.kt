@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.platform.UriHandler
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -380,6 +381,7 @@ fun Counseling(){
                     style = MaterialTheme.typography.h4,
                     color = Color.White,
                     textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.ExtraBold,
                     modifier=Modifier
                         .padding(top = 2.dp)
                 )
@@ -470,7 +472,7 @@ fun StudentSupport() {
                 text = "Student Support",
                 style = MaterialTheme.typography.h3,
                 modifier = Modifier
-                    .padding(start = 15.dp,top = 5.dp,end = 10.dp)
+                    .padding(start = 10.dp,top = 5.dp,end = 5.dp)
 
             )
 

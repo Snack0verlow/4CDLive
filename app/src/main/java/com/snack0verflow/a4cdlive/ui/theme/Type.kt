@@ -9,16 +9,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.snack0verflow.a4cdlive.R
 
-// TO DO:
-// - fix initialization of imported custom fonts
-// - change h2 fontfam -> fonts; fontweight -> ExtraBold
-// - change h3 fontfam -> fonts; fontweight -> Medium
-
-val fonts = FontFamily(
+val Custom = FontFamily(
     Font(R.font.jost_medium, FontWeight.Medium),
     Font(R.font.inter_extrabold, FontWeight.ExtraBold)
 )
-
 
 // Set of Material typography styles to start with
 val Typography = Typography(
@@ -28,26 +22,26 @@ val Typography = Typography(
         fontSize = 16.sp
     ),
     h1 = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = Custom,
         fontWeight = FontWeight.ExtraBold,
         fontSize = 40.sp
 
     ),
     h2 = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Bold,
+        fontFamily = Custom,
+        fontWeight = FontWeight.ExtraBold,
         fontSize = 20.sp
 
     ),
     h3 = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = Custom,
         fontWeight = FontWeight.ExtraBold,
         fontSize = 17.sp
 
     ),
     h4 = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
+        fontFamily = Custom,
+        fontWeight = FontWeight.Medium,
         fontSize = 13.sp,
         color = Color.Gray
 )
