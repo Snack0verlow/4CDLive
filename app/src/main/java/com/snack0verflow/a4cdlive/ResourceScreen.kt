@@ -517,7 +517,7 @@ fun Housing () {
             .background(HomeWhite)
             .clickable(
                 onClick = {
-                    uri = " https://www.dvc.edu/international/resources/housing.html"
+                    uri = "https://www.dvc.edu/international/resources/housing.html"
                     uriHandler.openUri(uri)
                 }
             )
