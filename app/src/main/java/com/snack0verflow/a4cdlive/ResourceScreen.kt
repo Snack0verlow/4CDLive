@@ -86,6 +86,7 @@ fun ResourceScreen () {
                         Clubs()
                         Internships()
                         StudentSupport()
+                        Housing()
 
                     }
                 }
@@ -390,26 +391,29 @@ fun Counseling(){
     }
 }
 @Composable
+
 fun Internships () {
     var uri = ""
     var uriHandler = LocalUriHandler.current
 
-    Column(
+    Row(
+        horizontalArrangement = Arrangement.SpaceEvenly,
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            //.padding(top = 10.dp, end = 30.dp)
-            //.size(height = 95.dp, width = 160.dp)
-            .shadow(elevation = 5.dp, shape = RoundedCornerShape(25.dp))
-            .background(HomeWhite)
+            //.padding(end = 30.dp)
+            // .size(height = 70.dp, width = 180.dp)
             .fillMaxWidth()
+            .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
+            .background(HomeWhite)
             .clickable(
                 onClick = {
-                    uri = "https://joinhandshake.com"
+                    uri = "https://www.dvc.edu/student-services/"
                     uriHandler.openUri(uri)
                 }
             )
-    ){
+    ) {
         Image(
-            painter = painterResource(id = R.drawable.internships),
+            painter = painterResource(id = R.drawable.internships ),
             contentDescription = "Internships",
             modifier = Modifier
                 .size(50.dp)
@@ -423,7 +427,7 @@ fun Internships () {
                 text = "Internships",
                 style = MaterialTheme.typography.h3,
                 modifier = Modifier
-                    .padding(start = 15.dp,top = 5.dp,end = 10.dp)
+                    .padding(start = 10.dp, top = 15.dp,)
 
             )
 
@@ -431,34 +435,40 @@ fun Internships () {
                 text = "Explore Careers",
                 style = MaterialTheme.typography.h4,
                 modifier = Modifier
-                    .padding(start = 15.dp, bottom = 5.dp,end = 10.dp)
+                    .padding(start = 10.dp, bottom = 15.dp)
+
             )
+
+
         }
 
     }
 }
 
 @Composable
-fun StudentSupport() {
+
+fun StudentSupport () {
     var uri = ""
     var uriHandler = LocalUriHandler.current
 
-    Column(
+    Row(
+        horizontalArrangement = Arrangement.SpaceEvenly,
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            //.padding(top = 10.dp, end = 30.dp)
-            .size(height = 95.dp, width = 160.dp)
-            .shadow(elevation = 5.dp, shape = RoundedCornerShape(25.dp))
-            .background(HomeWhite)
+            //.padding(end = 30.dp)
+            //.size(height = 70.dp, width = 160.dp)
             .fillMaxWidth()
+            .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
+            .background(HomeWhite)
             .clickable(
                 onClick = {
                     uri = "https://www.dvc.edu/student-services/"
                     uriHandler.openUri(uri)
                 }
             )
-    ){
+    ) {
         Image(
-            painter = painterResource(id = R.drawable.transferresources),
+            painter = painterResource(id = R.drawable.studentsupport ),
             contentDescription = "Student Support",
             modifier = Modifier
                 .size(50.dp)
@@ -469,16 +479,79 @@ fun StudentSupport() {
             horizontalAlignment = Alignment.Start
         ) {
             Text(
-                text = "Student Support",
+                text = "Student ",
                 style = MaterialTheme.typography.h3,
                 modifier = Modifier
-                    .padding(start = 10.dp,top = 5.dp,end = 5.dp)
+                    .padding(start = 10.dp,top = 15.dp,end = 15.dp)
 
             )
+
+            Text(
+                text = "Support",
+                style = MaterialTheme.typography.h3,
+                modifier = Modifier
+                    .padding(start = 10.dp,bottom= 15.dp, end = 15.dp)
+            )
+
+
 
         }
 
     }
 }
+
+@Composable
+
+fun Housing () {
+    var uri = ""
+    var uriHandler = LocalUriHandler.current
+
+    Row(
+        horizontalArrangement = Arrangement.SpaceEvenly,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            //.padding(end = 30.dp)
+            //.size(height = 70.dp, width = 160.dp)
+            .fillMaxWidth()
+            .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
+            .background(HomeWhite)
+            .clickable(
+                onClick = {
+                    uri = " https://www.dvc.edu/international/resources/housing.html"
+                    uriHandler.openUri(uri)
+                }
+            )
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.iconhome),
+            contentDescription = "Housing",
+            modifier = Modifier
+                .size(50.dp)
+                .padding(start = 15.dp)
+        )
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.Start
+        ) {
+            Text(
+                text = "Housing",
+                style = MaterialTheme.typography.h3,
+                modifier = Modifier
+                    .padding(start = 10.dp,top = 15.dp,end = 15.dp)
+
+            )
+
+            Text(
+                text = "Learn More",
+                style = MaterialTheme.typography.h4,
+                modifier = Modifier
+                    .padding(start = 10.dp, bottom = 15.dp,end = 30.dp)
+            )
+        }
+
+    }
+}
+
+
 
 
