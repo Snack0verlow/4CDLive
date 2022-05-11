@@ -30,7 +30,7 @@ fun RmpScreen (profList: MutableList<Professors>) {
 
     var uri = ""
     val uriHandler = LocalUriHandler.current
-    var isExpanded by remember { mutableStateOf(false)}
+
     var text by remember { mutableStateOf(TextFieldValue(""))}
 
     //home screen background color
@@ -80,8 +80,9 @@ fun RmpScreen (profList: MutableList<Professors>) {
                 state = rememberLazyListState(),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                items(items = profList) { professor ->
 
+                items(items = profList) { professor ->
+                    var isExpanded by remember { mutableStateOf(false)}
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -92,7 +93,7 @@ fun RmpScreen (profList: MutableList<Professors>) {
                             .pointerInput(Unit) {
                                 detectTapGestures(
                                     onTap = {
-                                        uri += professor.link
+                                        uri = professor.link
                                         uriHandler.openUri(uri)
                                     },
                                     onLongPress = {

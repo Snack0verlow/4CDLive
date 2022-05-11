@@ -22,8 +22,11 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavController
+import com.snack0verflow.a4cdlive.ui.theme.ClubGreen
+import com.snack0verflow.a4cdlive.ui.theme.Gray
 import com.snack0verflow.a4cdlive.ui.theme.HomeWhite
 
 
@@ -64,8 +67,8 @@ fun LogoSection (
             .padding(start = 30.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.dvclogotransparent),
-            contentDescription = "DVC Logo",
+            painter = painterResource(id = R.drawable.transparent_logo),
+            contentDescription = "4cd Transparent Logo",
             modifier = Modifier
                 .size(150.dp),
             alpha = .7f //FIXME: do we want slight transparency or no?
@@ -121,7 +124,7 @@ fun MainBox (
             )
     ) {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
             modifier = Modifier
                 .padding(30.dp)
         ) {
@@ -130,8 +133,8 @@ fun MainBox (
                 style = MaterialTheme.typography.h1,
             )
             Text(
-                text = "view the campus map"
-            )
+                text = "view the campus map",
+                )
         }
         Image(
             painter = painterResource(id = R.drawable.avatarhome2),
@@ -160,7 +163,7 @@ fun BoxRow (
                 .padding(end = 30.dp)
                 .shadow(elevation = 5.dp, shape = RoundedCornerShape(30.dp))
                 .size(160.dp)
-                .background(HomeWhite)
+                .background(ClubGreen)
                 .fillMaxWidth()
                 .clickable(
                     onClick = {
@@ -180,7 +183,7 @@ fun BoxRow (
                 style = MaterialTheme.typography.h2,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .padding(start = 20.dp, top = 10.dp, bottom = 10.dp)
+                    .padding(start = 15.dp, top = 10.dp, bottom = 10.dp)
                     .alpha(.7f)
 
             )
@@ -194,7 +197,7 @@ fun BoxRow (
                 .clickable(
                     onClick = {
                         //TODO: change to actual RMP page in our app? right now just opens RMP
-                        uri = "https://www.ratemyprofessors.com/campusRatings.jsp?sid=1245"
+                        uri = "https://assist.org/"
                         uriHandler.openUri(uri)
                     }
                 )
@@ -206,11 +209,11 @@ fun BoxRow (
                 modifier = Modifier.fillMaxSize()
             )
             Text(
-                text = "Rate My Professor",
+                text = "Assist.org",
                 style = MaterialTheme.typography.h2,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .padding(10.dp)
+                    .padding(start = 30.dp, top = 10.dp, bottom = 10.dp)
                     .alpha(.7f)
 
             )
@@ -283,3 +286,5 @@ fun MainBox (
     }
 }
  */
+
+//test
