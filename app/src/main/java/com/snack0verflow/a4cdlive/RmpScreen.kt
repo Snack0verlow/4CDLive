@@ -1,5 +1,6 @@
 package com.snack0verflow.a4cdlive
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
@@ -25,10 +26,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.snack0verflow.a4cdlive.ui.theme.*
 
+@OptIn(ExperimentalFoundationApi::class) //used for combined clickable, may be removed with compose update
 @Composable
 fun RmpScreen (profList: MutableList<Professors>) {
 
-    var uri = ""
     val uriHandler = LocalUriHandler.current
     var searchedText = ""
 
@@ -77,6 +78,7 @@ fun RmpScreen (profList: MutableList<Professors>) {
                 )
                 searchedText = text.text
 
+
             }
             LazyColumn(
                 state = rememberLazyListState(),
@@ -84,13 +86,9 @@ fun RmpScreen (profList: MutableList<Professors>) {
             ) {
 
                 items(
-                    items = if (searchedText.isEmpty()){
-                        profList
-                    } else {
-                        profList.filter { it.name.contains(searchedText.trim(), ignoreCase = true) }
-                    }
+                    items = profList.filter { it.name.contains(searchedText.trim(), ignoreCase = true) }
                 ) { professor ->
-                    var isExpanded by remember { mutableStateOf(false)}
+                    var isExpanded by remember { mutableStateOf(false) }
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -98,17 +96,10 @@ fun RmpScreen (profList: MutableList<Professors>) {
                             .shadow(elevation = 5.dp, shape = RoundedCornerShape(20.dp))
                             .background(HomeWhite)
                             .fillMaxWidth()
-                            .pointerInput(Unit) {
-                                detectTapGestures(
-                                    onTap = {
-                                        uri = professor.link
-                                        uriHandler.openUri(uri)
-                                    },
-                                    onLongPress = {
-                                        isExpanded = !isExpanded
-                                    }
-                                )
-                            }
+                            .combinedClickable (
+                                onClick = { uriHandler.openUri(professor.link) },
+                                onLongClick = { isExpanded = !isExpanded }
+                                    )
 
                     ) {
                         Column() {
@@ -123,12 +114,11 @@ fun RmpScreen (profList: MutableList<Professors>) {
                                 modifier =
                                 if (isExpanded) {
                                     Modifier.padding(start = 15.dp)
-                                }
-                                else {
+                                } else {
                                     Modifier.padding(start = 15.dp, bottom = 5.dp)
                                 }
                             )
-                            if (isExpanded){
+                            if (isExpanded) {
                                 Text(
                                     text = "Difficulty: " + professor.difficulty,
                                     modifier = Modifier.padding(start = 15.dp, bottom = 5.dp)
