@@ -30,6 +30,7 @@ fun RmpScreen (profList: MutableList<Professors>) {
 
     var uri = ""
     val uriHandler = LocalUriHandler.current
+    var searchedText = ""
 
     var text by remember { mutableStateOf(TextFieldValue(""))}
 
@@ -74,6 +75,7 @@ fun RmpScreen (profList: MutableList<Professors>) {
                     modifier = Modifier
                         .padding(start = 15.dp, bottom = 20.dp)
                 )
+                searchedText = text.text
 
             }
             LazyColumn(
@@ -81,7 +83,13 @@ fun RmpScreen (profList: MutableList<Professors>) {
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
 
-                items(items = profList) { professor ->
+                items(
+                    items = if (searchedText.isEmpty()){
+                        profList
+                    } else {
+                        profList.filter { it.name.contains(searchedText.trim(), ignoreCase = true) }
+                    }
+                ) { professor ->
                     var isExpanded by remember { mutableStateOf(false)}
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
