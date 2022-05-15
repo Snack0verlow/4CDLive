@@ -86,7 +86,10 @@ fun RmpScreen (profList: MutableList<Professors>) {
             ) {
 
                 items(
-                    items = profList.filter { it.name.contains(searchedText.trim(), ignoreCase = true) }
+                    items = profList.filter {
+                        it.name.contains(searchedText.trim(), ignoreCase = true) ||
+                        it.subject.contains(searchedText.trim(), ignoreCase = true)
+                    }
                 ) { professor ->
                     var isExpanded by remember { mutableStateOf(false) }
                     Row(
